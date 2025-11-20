@@ -1,2 +1,4 @@
 # Portfólio
-Meu Primeiro Portfolio
+Meu Primeiro Portfolio.
+
+Repositório criado, após estudos.
