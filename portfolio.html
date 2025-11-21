@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas Fernandes De Moura - Portfólio</title>
-  <link rel="icon" type="image/png" href="icone.png">
+  <link rel="icon" type="image/img" href="icone.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -220,7 +220,53 @@
 
     @media (max-width: 700px) {
       nav { display: none; }
-    }
+      .projeto-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+}
+
+
+.card3d {
+  perspective: 900px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card3d-inner {
+  background: rgba(26, 26, 29, 0.95);
+  border: 1px solid #2a2a2a;
+  padding: 20px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.card3d:hover .card3d-inner {
+  box-shadow: 0 25px 40px rgba(79, 70, 229, 0.3);
+  border-color: #4f46e5;
+}
+
+.card3d-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Texto */
+.card3d-inner h3 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.card3d-inner p {
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
   </style>
 </head>
 <body>
@@ -253,7 +299,6 @@
   <section id="habilidades" class="section">
     <h2>Habilidades</h2>
     <div class="grid-habilidades">
-      <div class="card">HTML</div>
       <div class="card">CSS</div>
       <div class="card">JavaScript</div>
       <div class="card">Python</div>
@@ -264,21 +309,29 @@
     </div>
   </section>
 
-  <section id="projetos" class="section">
-    <h2>Projetos</h2>
-    <div class="grid-projetos">
-      <div class="projeto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Projeto Exemplo" />
-        <h3>Meu Primeiro Site</h3>
-        <p>Site simples com HTML e CSS para praticar design responsivo.</p>
-      </div>
-      <div class="projeto-card">
-        <img src="https://via.placeholder.com/300x200" alt="Projeto Exemplo" />
-        <h3>Landing Page</h3>
-        <p>Página moderna com Flexbox e efeitos de transição.</p>
-      </div>
-    </div>
-  </section>
+<section id="projetos" class="section">
+  <h2>Projetos</h2>
+  <div class="grid-projetos">
+<a href="https://aniversario-ester.vercel.app/" target="_blank" class="card3d">
+  <div class="card3d-inner">
+    <img src="https://aniversario-ester.vercel.app/" alt="Projeto" class="card3d-img" />
+    <h3>Meu Primeiro Site</h3>
+    <p>Site simples com HTML e CSS para praticar design responsivo.</p>
+  </div>
+</a>
+
+
+   <a href="#" target="_blank" class="card3d">
+  <div class="card3d-inner">
+    <img src="https://via.placeholder.com/300x200" alt="Landing Page" class="card3d-img" />
+    <h3>Landing Page</h3>
+    <p>Página moderna utilizando Flexbox, layout responsivo e animações suaves.</p>
+  </div>
+</a>
+
+
+  </div>
+</section>
 
   <section id="experiencia" class="section">
     <h2>Experiência</h2>
@@ -302,9 +355,10 @@
       </form>
       <div class="social-links">
         <h3>Minhas redes</h3>
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/lucas-moura-977555370/" target="_blank">LinkedIn</a>
+
+        <a href="https://github.com/lucasfernandesmoura09-eng" target="_blank">GitHub</a>
+        <a href="https://www.instagram.com/lfstboy/" target="_blank">Instagram</a>
       </div>
     </div>
   </section>
@@ -324,7 +378,6 @@
     }
     window.addEventListener("resize", resize);
     resize();
-
     const POINTS = [];
     const spacing = 100;
 
@@ -381,5 +434,27 @@
 
     animate();
   </script>
+
+  <script>
+  document.querySelectorAll(".card3d").forEach(card => {
+    const inner = card.querySelector(".card3d-inner");
+
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const rotateY = ((x / rect.width) - 0.5) * 20;
+      const rotateX = ((y / rect.height) - 0.5) * -20;
+
+      inner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      inner.style.transform = "rotateX(0deg) rotateY(0deg)";
+    });
+  });
+</script>
+
 </body>
 </html>
