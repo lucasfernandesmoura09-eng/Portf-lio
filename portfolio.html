@@ -347,11 +347,20 @@
   <section id="contato" class="section">
     <h2>Contato</h2>
     <div class="contato-container">
-      <form class="form-contato">
-        <input type="text" placeholder="Seu nome" required />
-        <input type="email" placeholder="Seu e-mail" required />
-        <textarea placeholder="Sua mensagem" required></textarea>
-        <button type="submit">Enviar</button>
+      <form class="form-contato" action="https://formsubmit.co/lucasfernandesmoura09@outlook.com" method="POST">
+
+  <!-- Proteção anti-spam -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Para redirecionar após enviar -->
+  <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
+
+  <input type="text" name="name" placeholder="Seu nome" required />
+  <input type="email" name="email" placeholder="Seu e-mail" required />
+  <textarea name="message" placeholder="Sua mensagem" required></textarea>
+  
+  <button type="submit">Enviar</button>
+</form>>
       </form>
       <div class="social-links">
         <h3>Minhas redes</h3>
@@ -359,6 +368,7 @@
 
         <a href="https://github.com/lucasfernandesmoura09-eng" target="_blank">GitHub</a>
         <a href="https://www.instagram.com/lfstboy/" target="_blank">Instagram</a>
+        <a href="http://wa.me/5511984266951" target="_blank">WhatsApp</a>
       </div>
     </div>
   </section>
@@ -455,6 +465,5 @@
     });
   });
 </script>
-
 </body>
 </html>
